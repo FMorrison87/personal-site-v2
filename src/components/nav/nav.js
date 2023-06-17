@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react';
 import Switch from '@mui/material/Switch';
 import Link from '@mui/material/Link';
 import DarkModeIcon from '@mui/icons-material/DarkModeOutlined';
@@ -9,8 +8,10 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { svgs } from '../../utils/svgs'
 import "./nav.scss"
 
-function Nav() {
-    const [menuActive, setMenuActive] = useState(false)
+function Nav(props) {
+    const ref = useRef(null)
+    const { onClickOutside } = props;
+    const [menuActive, setMenuActive] = useState(props.navOpen)
 
     function swapMode() {
         const body = document.querySelector('body')
@@ -19,10 +20,20 @@ function Nav() {
     }
 
     function toggleMenu() {
-        let newMenuActive = !menuActive
-
-        setMenuActive(newMenuActive)
+        setMenuActive(menuActive => !menuActive)
     }
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (ref.current && !ref.current.contains(event.target)) {
+              setMenuActive(false)
+            }
+          };
+          document.addEventListener('click', handleClickOutside, true);
+          return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+          };
+    },[onClickOutside])
 
     const navWrapper = {
         display: 'flex',
@@ -42,13 +53,12 @@ function Nav() {
     return (
      <nav style={navWrapper}>
         <div className="nav_link-wrapper" data-active={menuActive}>
-            <Link href="#About" underline="none" onClick={toggleMenu}>About</Link>
-            {/* <Link href="#Ethos" underline="none" onClick={toggleMenu}>Ethos</Link>
-            <Link href="#Technologies" underline="none" onClick={toggleMenu}>Technologies</Link> */}
-            <Link href="#Portfolio" underline="none" onClick={toggleMenu}>Portfoloio</Link>
+            <Link href="#About" underline="none">About</Link>
+            <Link href="#Portfolio" underline="none">Portfoloio</Link>
+            <Link href="mailto:Frances.Morrison87@gmail.com.com" underline="none">Contact Me</Link>
             <div className="nav_icon-link-wrapper">
-                <Link href="https://github.com/FMorrison87" target="_blank" rel="noopener" underline="none" onClick={toggleMenu}>{ svgs.github }</Link>
-                <Link href="https://www.linkedin.com/in/frances-morrison87/" target="_blank" rel="noopener" underline="none" onClick={toggleMenu}>{ svgs.linkedin }</Link>
+                <Link href="https://github.com/FMorrison87" target="_blank" rel="noopener" underline="none">{ svgs.github }</Link>
+                <Link href="https://www.linkedin.com/in/frances-morrison87/" target="_blank" rel="noopener" underline="none">{ svgs.linkedin }</Link>
             </div>
         </div>
         <div style={navModeSwitcher}>
@@ -56,7 +66,9 @@ function Nav() {
             <Switch {...label} onChange={swapMode} defaultChecked></Switch>
             <DarkModeIcon />
         </div>
-        { menuActive ? <MenuOpenIcon className="nav_menu-icon" onClick={toggleMenu} /> : <MenuIcon className="nav_menu-icon" onClick={toggleMenu} /> }
+        <div className="nav_hamburger-wrapper" onClick={toggleMenu} ref={ref}>
+        { menuActive ? <MenuOpenIcon className="nav_menu-icon" /> : <MenuIcon className="nav_menu-icon" /> }
+        </div>
      </nav>
     );
   }

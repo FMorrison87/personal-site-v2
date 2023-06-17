@@ -1,12 +1,14 @@
+import React, { useState } from 'react';
 import Nav from "./components/nav/nav"
 import Header from "./components/header/header"
 import CardCollapse from "./components/card-collapse/card-collapse"
 import "./App.scss";
 
 function App() {
+  const [navOpen, setNavOpen] = useState(false)
   return (
     <div className="site-wrapper">
-      <Nav />
+      <Nav navOpen={navOpen} onClickOutside={() => {setNavOpen(false)} }/>
       <Header />
       <main className="site-main">
         <section id="About">
