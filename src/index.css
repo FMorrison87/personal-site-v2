@@ -1,13 +1,85 @@
+:root {
+  --background-color: #041428;
+  --background-color-fill: #041832;
+  --header-fill-color: #3e6aa8;
+  --header-border-color: #73a9ef;
+  --text-color: #909eaf;
+  --border-color: #2b3c54;
+  --interactive-color: #6095de;
+  --interactive-color-hover: #82a6d6;
+}
+
+[data-theme="light"] {
+  --background-color: #dde7f4;
+  --background-color: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%);
+  --header-fill-color: #1962c9;
+  --header-border-color: #002b64;
+  --background-color-fill: #ecf0f4;
+  --text-color: #3a4550;
+  --border-color: #abbed7;
+  --interactive-color: #0053c6;
+  --interactive-color-hover: #226dd6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Helvetica', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.3;
+  font-size: 20px;
+
+  @media(width < 768px) {
+    font-size: 16px;
+  }
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: var(--interactive-color);
+}
+
+h1 {
+  font-size: 60px;
+}
+
+p {
+  margin-top: 0;
+  color: var(--text-color);
+}
+
+ul {
+  margin: 0;
+}
+
+/* ul {
+  padding: 0;
+}
+
+li {
+  color: var(--text-color);
+  list-style: none;
+}
+
+li::before {
+  content: "▹";
+  padding-inline-end: 12px;
+  left: 0px;
+  color: var(--interactive-color);
+  font-size: 14px;
+  line-height: 12px;
+} */
+
+svg {
+  fill: var(--interactive-color);
 }

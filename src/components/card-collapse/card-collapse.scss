@@ -1,0 +1,86 @@
+.card-collapse {
+    padding: 24px;
+    margin-block: 16px;
+    box-shadow: 0 0 0 1px #456ea678;
+    border-radius: 6px;
+    color: #456ea678;
+    transition: all 200ms ease-in-out;
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover{
+            box-shadow: 0 0 0 2px var(--interactive-color);
+            //color: var(--interactive-color);
+            
+            svg {
+                fill: var(--interactive-color);
+            }
+        }
+    }
+
+    @media(width < 768px) {
+        padding: 16px;
+    }
+
+    &[data-active="true"] {
+        //box-shadow: 0 0 0 1px var(--interactive-color);
+        color: var(--interactive-color);
+        background-color: var(--background-color-fill);;
+
+        svg {
+            transform: rotate(180deg)
+        }
+    }
+
+    h2 {
+        font-weight: 300;
+        margin-block: 0;
+    }
+
+    svg {
+        transition: all 200ms ease-in-out;
+        fill: var(--interactive-color);
+        min-width: 48px;
+    }
+
+    & .card_header-wrapper {
+        .card_title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .card_chip-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        p {
+            margin-block-end: 0;
+            margin-block-start: 12px;
+        }
+    }
+
+    & .card_content {
+        &[data-collapse="true"] {
+            height: 0;
+            visibility: hidden;
+            > div {
+                display: none;
+            }
+        }
+        &[data-collapse="false"] {
+            height: auto;
+            visibility: visible;
+            margin-block-start: 20px;
+            > div {
+                display: block;
+            }
+        }
+
+        .card_link-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
