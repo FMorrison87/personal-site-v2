@@ -22,8 +22,8 @@ function CardCollapse ({cardTitle, chipArray, cardDescription, dataActive, child
                     </div>
                     <div className='card_chip-wrapper'>
                         {
-                            chipArray.map((chip) => {
-                                return <Chip content={chip} />
+                            chipArray.map((chip, index) => {
+                                return <Chip key={index} content={chip} />
                             })
                         }
                     </div>
