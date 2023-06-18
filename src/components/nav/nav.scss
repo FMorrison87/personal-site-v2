@@ -47,7 +47,7 @@ nav {
         }
     }
 
-    .nav_menu-icon {
+    .nav_menu-icon, .nav_hamburger-wrapper {
         display: none;
 
         @media(width < 768px) {
