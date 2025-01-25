@@ -37,7 +37,7 @@ function App() {
             </p>
             <strong>Good faith design execution.</strong>
             <p>
-              I turn professional designs into code that matches the designers
+              I turn professional designs into code that matches the designer's
               intent.
             </p>
             <strong>Clear, up-front communication</strong>
@@ -49,7 +49,10 @@ function App() {
           </div>
           <div id="Technologies">
             <h3>Technologies</h3>
-            <p>I am well-versed in the following technologies.</p>
+            <p>
+              I am well-versed in the following technologies, frameworks, and
+              libraries.
+            </p>
             <div className="technologies_list">
               <ul>
                 <li>HTML</li>
@@ -62,23 +65,68 @@ function App() {
                 <li>React</li>
                 <li>Angular</li>
                 <li>RxJs & NgRx</li>
-                <li>REST APIs</li>
+                <li>Golang</li>
               </ul>
               <ul>
+                <li>REST APIs</li>
                 <li>Stencil.js</li>
                 <li>Lit</li>
                 <li>Astro.js</li>
+                <li>
+                  <a
+                    href="https://astrouxds.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Astro UXDS
+                  </a>
+                </li>
                 <li>Adobe XD</li>
                 <li>Adobe Photoshop</li>
                 <li>Figma</li>
                 <li>Tailwind</li>
                 <li>Material UI</li>
+                <li>PrimeNg</li>
               </ul>
             </div>
           </div>
         </section>
         <section id="Portfolio">
           <h2>Portfolio</h2>
+          <CardCollapse
+            cardTitle={"Angular SpaceX Astro Application"}
+            chipArray={[
+              "Angular",
+              "TypeScript",
+              "NgRx Signals",
+              "RxJs",
+              "Astro UXDS",
+              "AG Grid",
+            ]}
+            cardDescription={
+              "An excercise in assembling an application that displays data from the SpaceX public API with specific technologies used to achieve that end goal."
+            }
+            dataActive={false}
+          >
+            <div>
+              <strong>Highlights</strong>
+              <ul>
+                <li>
+                  Use of Astro Design System and web components for UI patterns.
+                </li>
+                <li>AG Grid for handling the tables.</li>
+                <li>Angular as the core framework for assembly and routing.</li>
+                <li>NgRx Signals for state management and data handling.</li>
+              </ul>
+              <a
+                href="https://github.com/FMorrison87/angular-spaceX-astro"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Angular SpaceX Astro Demo App
+              </a>
+            </div>
+          </CardCollapse>
           <CardCollapse
             cardTitle={"Astro UXDS"}
             chipArray={[
