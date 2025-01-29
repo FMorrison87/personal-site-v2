@@ -123,7 +123,7 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Angular SpaceX Astro Demo App
+                Angular SpaceX Astro Demo Applications
               </a>
             </div>
           </CardCollapse>
