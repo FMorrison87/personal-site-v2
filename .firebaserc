@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "frances-morrison-personal-site"
-  }
+  },
+  "targets": {
+    "frances-morrison-personal-site": {
+      "hosting": {
+        "default": [
+          "frances-morrison-personal-site"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
